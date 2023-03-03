@@ -63,13 +63,14 @@ router.hooks({
           });
         break;
       // New Case for Pizza View
-      case "Pizza":
+      case "Leaderboard":
         // New Axios get request utilizing already made environment variable
         axios
-          .get(`${process.env.PIZZA_PLACE_API_URL}/pizzas`)
+          .get(``)
           .then(response => {
             // Storing retrieved data in state
-            store.Pizza.pizzas = response.data;
+            //store.Pizza.pizzas = response.data;
+            console.log(response.data);
             done();
           })
           .catch(error => {
