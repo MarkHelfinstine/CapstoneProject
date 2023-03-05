@@ -20,7 +20,7 @@ function render(state = store.Home) {
   router.updatePageLinks();
 }
 
-function afterRender(state) {
+function afterRender() {
   // add menu toggle to bars icon in nav bar
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
@@ -66,7 +66,9 @@ router.hooks({
       case "Leaderboard":
         // New Axios get request utilizing already made environment variable
         axios
-          .get(``)
+          .get(
+            `https://www.strava.com/api/v3/clubs/245478/activities?page=&per_page=30" "Authorization: Bearer [145c4ffda94a33feccc1bb439e6fb43333bb1298]`
+          )
           .then(response => {
             // Storing retrieved data in state
             //store.Pizza.pizzas = response.data;
