@@ -1,3 +1,35 @@
+.topImage {
+    grid-area:topImage;
+    padding:10px;
+    border:1px solid black;
+}
+
+.leftSection {
+    grid-area: leftSection;
+    padding:10px;
+    border:1px solid black;
+}
+
+.rightSection {
+    grid-area: rightSection;
+    padding:10px;
+    border:1px solid black;
+}
+
+.container {
+    display:grid;
+    grid-template-columns: 200px 1fr 1fr 1fr 1fr 200px;
+    column-gap: 10px;
+    row-gap: 15px;
+    grid-template-rows: auto;
+    justify-items: center;
+    grid-template-areas:
+        " . topImage topImage topImage topImage . "
+        " . topImage topImage topImage topImage . "
+        " . topImage topImage topImage topImage . "
+        "leftSection leftSection leftSection rightSection rightSection rightSection";
+}
+
 ul {
     list-style-type:none;
     margin:0;
