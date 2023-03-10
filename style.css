@@ -47,12 +47,24 @@ td {
 th {
     background-color: #33989e;
 }
+
 ul {
     list-style-type:none;
     margin:0;
     padding:0;
     overflow:hidden;
     background-color:#3f99a5;
+}
+
+#ctaButton > a{
+    width:250px;
+    margin:auto;
+    border:1px solid black;
+    padding:15px;
+    background-color:black;
+    color:white;
+    text-decoration: none;
+    border-radius:15px;
 }
 
 li {
