@@ -12,8 +12,7 @@ const signupSchema = new mongoose.Schema({
     validate: /^[A-Za-z0-9 ]*$/
   },
   strava: {
-    type: String,
-    validate: /^[A-Za-z0-9 ]*$/
+    type: String
   },
   age: {
     type: String,

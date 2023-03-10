@@ -16,15 +16,41 @@ function render(state = store.Home) {
   ${Main(state)}
   ${Footer()}
   `;
-  afterRender();
+  afterRender(state);
   router.updatePageLinks();
 }
 
-function afterRender() {
+function afterRender(state) {
   // add menu toggle to bars icon in nav bar
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
   });
+  if (state.view === "Signup") {
+    document.querySelector("form").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const inputList = event.target.elements;
+      console.log("Input Element LIst", inputList);
+
+      const requestData = {
+        name: inputList.name.value,
+        gender: inputList.gender.value,
+        strava: inputList.strava.value,
+        age: inputList.age.value
+      };
+      console.log("request Body", requestData);
+
+      axios
+        .post(`${process.env.SIGNUP}/signups`, requestData)
+        .then(response => {
+          store.Signup.signup.push(response.data);
+          router.navigate("/Signup");
+        })
+        .catch(error => {
+          console.log("It puked", error);
+        });
+    });
+  }
 }
 
 router.hooks({
@@ -66,9 +92,11 @@ router.hooks({
       case "Leaderboard":
         // New Axios get request utilizing already made environment variable
         axios
-          .get(
-            `https://www.strava.com/api/v3/clubs/245478/activities?page=&per_page=30" "Authorization: Bearer [145c4ffda94a33feccc1bb439e6fb43333bb1298]`
-          )
+          .get(`https://www.strava.com/api/v3/clubs/245478/activities`, {
+            headers: {
+              Authorization: "Bearer d83a851b8870b9fa13d67baa01275c9f4b958b61"
+            }
+          })
           .then(response => {
             // Storing retrieved data in state
             //store.Pizza.pizzas = response.data;
