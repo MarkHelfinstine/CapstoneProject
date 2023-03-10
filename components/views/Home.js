@@ -1,6 +1,6 @@
 import html from "html-literal";
 
-export default state => html`
+export default () => html`
   <section id="jumbotron">
     <div id="homeContent">
       <h1>

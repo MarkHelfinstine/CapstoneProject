@@ -52,7 +52,7 @@ router.put("/:id", (request, response) => {
       upsert: true
     },
     (error, record) => {
-      if (error) return response.status(500).json(error);
+      if (error) return response.status(500).json(error.error);
       return response.json(record);
     }
   );

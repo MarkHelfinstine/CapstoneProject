@@ -1,6 +1,6 @@
 import html from "html-literal";
 
-export default () => html`
+export default state => html`
   <form id="signup" method="POST" action="">
     <h2>Signup</h2>
     <div>
