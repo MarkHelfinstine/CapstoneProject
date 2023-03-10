@@ -29,7 +29,24 @@
         " . topImage topImage topImage topImage . "
         "leftSection leftSection leftSection rightSection rightSection rightSection";
 }
-
+table, th, td {
+    border:1px solid black;
+    border-collapse: collapse;
+}
+table {
+    margin:auto;
+}
+th, td {
+    text-align: center;
+    width:300px;
+    height:50px;
+}
+td {
+    color:white;
+}
+th {
+    background-color: #33989e;
+}
 ul {
     list-style-type:none;
     margin:0;
