@@ -1,7 +1,7 @@
 import html from "html-literal";
 
 export default state => html`
-  <form id="signup" method="POST" action="">
+  <form id="signup" class="center signup" method="POST" action="">
     <h2>Signup</h2>
     <div>
       <label for="name">Name:</label>
