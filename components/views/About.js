@@ -4,9 +4,11 @@ export default () => html`
   <!-- <section id="about">-->
   <div class="container">
     <div class="topImage">
-      <p>
-        https://www.canva.com/design/DAEhUV204cY/view?utm_content=DAEhUV204cY&utm_campaign=designshare&utm_medium=link&utm_source=viewer
-      </p>
+      <iframe
+        height="300px"
+        width="500px"
+        src="https://www.canva.com/design/DAEhUV204cY/view?embed"
+      ></iframe>
     </div>
     <div class="leftSection">
       <h3>Mission</h3>
@@ -34,16 +36,24 @@ export default () => html`
     <div class="rightSection">
       <h3>Fundraiser Information</h3>
       <p>
-        Lorem Ipsum lorem ipsum blah blah blahLorem Ipsum lorem ipsum blah blah
-        blahLorem Ipsum lorem ipsum blah blah blahLorem Ipsum lorem ipsum blah
-        blah blahLorem Ipsum lorem ipsum blah blah blahLorem Ipsum lorem ipsum
-        blah blah blahLorem Ipsum lorem ipsum blah blah blahLorem Ipsum lorem
-        ipsum blah blah blah
+        The Everest Challenge is historically completed by climbing
+        approximately 29,030 ft on the bike in a single attempt and without
+        stopping. This is a monumental physical feat and takes a good majority
+        of a single day to complete, often leaving the athlete extremely
+        drained.
       </p>
       <p>
-        Lorem Ipsum lorem ipsum blah blah blahLorem Ipsum lorem ipsum blah blah
-        blahLorem Ipsum lorem ipsum blah blah blahLorem Ipsum lorem ipsum blah
-        blah blah
+        The Everest Challenge is symbolic of the suffering endured by military
+        service members both present and past. The average rate of Veteran
+        suicide is 22 per day. This challenge is a way to take on a small amount
+        of suffering and to bring awareness to this problem.
+      </p>
+      <p>
+        The Project Echelon Everest Challenge of 2023 will be conducted a little
+        bit differently. Instead of enforcing the traditional single activity
+        rule, this challenge will be held over the course of 1 month. The
+        accumulated elevation gain of either real life or virtual activities
+        will be tracked in real time as each activity is uploaded.
       </p>
     </div>
   </div>

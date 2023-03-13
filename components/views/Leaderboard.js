@@ -2,12 +2,15 @@ import html from "html-literal";
 
 export default () => html`
   <section id="leaderboard">
-    <h4>Information!</h4>
-    <p>This will be a table that pulls data from Strava via API.</p>
-    <p>
-      Activities from members in the club will be shown. This is an elevation
-      gained challenge so elevation will be the primary metric for the display.
-    </p>
+    <div class="center info">
+      <h4>Information!</h4>
+      <p>This will be a table that pulls data from Strava via API.</p>
+      <p>
+        Activities from members in the club will be shown. This is an elevation
+        gained challenge so elevation will be the primary metric for the
+        display.
+      </p>
+    </div>
     <table>
       <tr>
         <th>Name</th>

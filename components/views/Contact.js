@@ -2,7 +2,7 @@ import html from "html-literal";
 
 export default () => html`
   <!-- <section id="contact">-->
-  <div id="contactInfo">
+  <div id="contactInfo" class=" center info">
     <p>Mark Helfinstine</p>
     <p>904.930.2465</p>
     <p>
