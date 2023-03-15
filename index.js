@@ -94,13 +94,27 @@ router.hooks({
         axios
           .get(`https://www.strava.com/api/v3/clubs/245478/activities`, {
             headers: {
-              Authorization: "Bearer d83a851b8870b9fa13d67baa01275c9f4b958b61"
+              Authorization: "Bearer 7d2a38efa3726537a7437536ba8bf228fe64d58c"
             }
           })
           .then(response => {
             // Storing retrieved data in state
             //store.Pizza.pizzas = response.data;
             console.log(response.data);
+            done();
+          })
+          .catch(error => {
+            console.log("It puked", error);
+            done();
+          });
+        break;
+      case "Signup":
+        // New Axios get request utilizing already made environment variable
+        axios
+          .get(`${process.env.SIGNUP}/signup`)
+          .then(response => {
+            // Storing retrieved data in state
+            store.Signup.signups = response.data;
             done();
           })
           .catch(error => {
