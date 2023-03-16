@@ -94,13 +94,14 @@ router.hooks({
         axios
           .get(`https://www.strava.com/api/v3/clubs/245478/activities`, {
             headers: {
-              Authorization: "Bearer 7d2a38efa3726537a7437536ba8bf228fe64d58c"
+              Authorization: "Bearer 08974425558782dc2e712ff7797642f6f3b9320b"
             }
           })
           .then(response => {
             // Storing retrieved data in state
             //store.Pizza.pizzas = response.data;
-            console.log(response.data);
+            store.Leaderboard.leaderboard = response.data;
+            //console.log(response.data);
             done();
           })
           .catch(error => {

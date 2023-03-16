@@ -1,4 +1,5 @@
 export default {
   header: "Leaderboard",
-  view: "Leaderboard"
+  view: "Leaderboard",
+  leaderboard: []
 };
