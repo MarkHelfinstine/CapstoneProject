@@ -94,7 +94,7 @@ router.hooks({
         axios
           .get(`https://www.strava.com/api/v3/clubs/245478/activities`, {
             headers: {
-              Authorization: "Bearer 08974425558782dc2e712ff7797642f6f3b9320b"
+              Authorization: "Bearer efe2f3ea9bf573afb8205a92804ea373e8da3b12"
             }
           })
           .then(response => {
