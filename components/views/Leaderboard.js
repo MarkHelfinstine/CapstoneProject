@@ -1,6 +1,6 @@
 import html from "html-literal";
 
-export default () => html`
+export default state => html`
   <section id="leaderboard">
     <div class="center info">
       <h4>Information!</h4>
@@ -11,31 +11,18 @@ export default () => html`
         display.
       </p>
     </div>
-    <table>
+    <table id="stravaBoard">
       <tr>
         <th>Name</th>
         <th>Distance</th>
         <th>Elevation Gained</th>
         <th>Elevation Total</th>
       </tr>
-      <tr>
-        <td>Name</td>
-        <td>Distance</td>
-        <td>Elevation Gained</td>
-        <td>Elevation Total</td>
-      </tr>
-      <tr>
-        <td>Name</td>
-        <td>Distance</td>
-        <td>Elevation Gained</td>
-        <td>Elevation Total</td>
-      </tr>
-      <tr>
-        <td>Name</td>
-        <td>Distance</td>
-        <td>Elevation Gained</td>
-        <td>Elevation Total</td>
-      </tr>
+      ${state.leaderboard
+        .map(leaderboard => {
+          return `<tr><td>${leaderboard.athlete.firstname} ${leaderboard.athlete.lastname}</td><td>${leaderboard.distance}</td><td>${leaderboard.total_elevation_gain}</td><td>${leaderboard.totalElevation}</td></tr>`;
+        })
+        .join("")}
     </table>
   </section>
 `;
