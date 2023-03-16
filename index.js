@@ -111,10 +111,10 @@ router.hooks({
       case "Signup":
         // New Axios get request utilizing already made environment variable
         axios
-          .get(`${process.env.SIGNUP}/signup`)
+          .get(`${process.env.SIGNUP}/signups`)
           .then(response => {
             // Storing retrieved data in state
-            store.Signup.signups = response.data;
+            store.Signup.signup = response.data;
             done();
           })
           .catch(error => {
