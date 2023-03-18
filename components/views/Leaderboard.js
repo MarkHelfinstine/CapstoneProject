@@ -18,9 +18,17 @@ export default state => html`
         <th>Elevation Gained</th>
         <th>Elevation Total</th>
       </tr>
+
       ${state.leaderboard
         .map(leaderboard => {
-          return `<tr><td>${leaderboard.athlete.firstname} ${leaderboard.athlete.lastname}</td><td>${leaderboard.distance}</td><td>${leaderboard.total_elevation_gain}</td><td>${leaderboard.totalElevation}</td></tr>`;
+          return `<tr><td>${leaderboard.athlete.firstname} ${
+            leaderboard.athlete.lastname
+          }</td><td>${(leaderboard.distance * 0.000621371192).toFixed(2) +
+            " mi"}</td><td>${(
+            leaderboard.total_elevation_gain * 3.2808
+          ).toFixed(2) + " ft"}</td><td>${
+            leaderboard.totalElevation
+          }</td></tr>`;
         })
         .join("")}
     </table>
