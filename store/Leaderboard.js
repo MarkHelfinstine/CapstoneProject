@@ -1,5 +1,6 @@
 export default {
   header: "Leaderboard",
   view: "Leaderboard",
-  leaderboard: []
+  leaderboard: [],
+  auth: null
 };

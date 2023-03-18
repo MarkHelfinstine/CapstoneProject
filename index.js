@@ -53,8 +53,26 @@ function afterRender(state) {
   }
 }
 
+async function reAuthorize() {
+  // fetch(auth_link, {
+  //   method: "post",
+  //   headers: {
+  //     Accept: "application/json, text/plain, */*",
+  //     "Content-Type": "application/json"
+  //   },
+  //   body: JSON.stringify({
+  //     client_id: "100771",
+  //     client_secret: "15e43463c1eda2defeccded69417ef9f88108f70",
+  //     refresh_token: "cea392a2b76e43b8438f116091d8f361335ec8dd",
+  //     grant_type: "refresh_token"
+  //   })
+  // })
+  //   .then(res => res.json())
+  //   .then(res => getActivities(res));
+}
+
 router.hooks({
-  before: (done, params) => {
+  before: async (done, params) => {
     const view =
       params && params.data && params.data.view
         ? capitalize(params.data.view)
@@ -91,22 +109,43 @@ router.hooks({
       // New Case for Pizza View
       case "Leaderboard":
         // New Axios get request utilizing already made environment variable
+
         axios
-          .get(`https://www.strava.com/api/v3/clubs/245478/activities`, {
-            headers: {
-              Authorization: "Bearer efe2f3ea9bf573afb8205a92804ea373e8da3b12"
+          .post(
+            "https://www.strava.com/oauth/token",
+            {
+              client_id: `${process.env.CLIENT_ID}`,
+              client_secret: `${process.env.CLIENT_SECRET}`,
+              refresh_token: `${process.env.REFRESH_TOKEN}`,
+              grant_type: "refresh_token"
+            },
+            {
+              headers: {
+                Accept: "application/json, text/plain, */*",
+                "Content-Type": "application/json"
+              }
             }
-          })
-          .then(response => {
-            // Storing retrieved data in state
-            //store.Pizza.pizzas = response.data;
-            store.Leaderboard.leaderboard = response.data;
-            //console.log(response.data);
-            done();
-          })
-          .catch(error => {
-            console.log("It puked", error);
-            done();
+          )
+          .then(res => {
+            console.log(res.data);
+            //store.Leaderboard.auth = res.data;
+            axios
+              .get(`https://www.strava.com/api/v3/clubs/245478/activities`, {
+                headers: {
+                  Authorization: `${res.data.token_type} ${res.data.access_token}`
+                }
+              })
+              .then(response => {
+                // Storing retrieved data in state
+                //store.Pizza.pizzas = response.data;
+                store.Leaderboard.leaderboard = response.data;
+                //console.log(response.data);
+                done();
+              })
+              .catch(error => {
+                console.log("It puked", error);
+                done();
+              });
           });
         break;
       case "Signup":
