@@ -1,7 +1,7 @@
 import html from "html-literal";
 
 export default () => html`
-  <div class="container">
+  <div class="howitworks-row">
     <section class="center">
       <h3>How It Works</h3>
       <p>Instructions</p>
