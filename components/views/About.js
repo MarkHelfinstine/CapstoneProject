@@ -2,7 +2,7 @@ import html from "html-literal";
 
 export default () => html`
   <!-- <section id="about">-->
-  <div class="container">
+  <div class="about-row">
     <div class="topImage">
       <iframe
         height="300px"
@@ -10,7 +10,9 @@ export default () => html`
         src="https://www.canva.com/design/DAEhUV204cY/view?embed"
       ></iframe>
     </div>
-    <div class="leftSection">
+  </div>
+  <div class="about-row-content">
+    <div class="about-info">
       <h3>Mission</h3>
       <p>
         Project Echelon equips and empowers veterans to experience life in a
@@ -33,7 +35,7 @@ export default () => html`
         but also for our families and community.
       </p>
     </div>
-    <div class="rightSection">
+    <div class="about-info">
       <h3>Fundraiser Information</h3>
       <p>
         The Everest Challenge is historically completed by climbing
