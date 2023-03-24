@@ -25,6 +25,7 @@ function afterRender(state) {
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
   });
+
   if (state.view === "Signup") {
     document.querySelector("form").addEventListener("submit", event => {
       event.preventDefault();
@@ -50,6 +51,34 @@ function afterRender(state) {
           console.log("It puked", error);
         });
     });
+  }
+
+  if (state.view === "Leaderboard") {
+    function sortTable() {
+      var table, rows, switching, i, x, y, shouldSwitch;
+      table = document.getElementById("stravaBoard");
+      switching = true;
+      while (switching) {
+        switching = false;
+        rows = table.rows;
+
+        for (i = 1; i < rows.length - 1; i++) {
+          shouldSwitch = false;
+
+          x = rows[i].getElementsByTagName("TD")[0];
+          y = rows[i + 1].getElementsByTagName("TD")[0];
+          if (x.innerHTML > y.innerHTML) {
+            shouldSwitch = true;
+            break;
+          }
+        }
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+        }
+      }
+    }
+    sortTable();
   }
 }
 

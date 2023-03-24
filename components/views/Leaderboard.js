@@ -2,21 +2,22 @@ import html from "html-literal";
 
 export default state => html`
   <section id="leaderboard">
-    <div class="center info">
-      <h4>Information!</h4>
-      <p>This will be a table that pulls data from Strava via API.</p>
-      <p>
-        Activities from members in the club will be shown. This is an elevation
-        gained challenge so elevation will be the primary metric for the
-        display.
-      </p>
+    <div class="leaderboard-row">
+      <div class="leaderboard-info">
+        <h4>Information!</h4>
+        <p>This will be a table that pulls data from Strava via API.</p>
+        <p>
+          Activities from members in the club will be shown. This is an
+          elevation gained challenge so elevation will be the primary metric for
+          the display.
+        </p>
+      </div>
     </div>
     <table id="stravaBoard">
       <tr>
         <th>Name</th>
         <th>Distance</th>
         <th>Elevation Gained</th>
-        <th>Elevation Total</th>
       </tr>
 
       ${state.leaderboard
@@ -26,9 +27,7 @@ export default state => html`
           }</td><td>${(leaderboard.distance * 0.000621371192).toFixed(2) +
             " mi"}</td><td>${(
             leaderboard.total_elevation_gain * 3.2808
-          ).toFixed(2) + " ft"}</td><td>${
-            leaderboard.totalElevation
-          }</td></tr>`;
+          ).toFixed(2) + " ft"}</td></tr>`;
         })
         .join("")}
     </table>
