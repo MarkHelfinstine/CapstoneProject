@@ -178,10 +178,10 @@ justify-content:space-evenly;
 
 .signup-column-form {
     padding:10px 15px;
-    border-radius: 15px;
     background:rgb(0,0,0);
     background:rgba(0, 0, 0, 0.103);
     margin-bottom:10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .signup-column-form > hr {
